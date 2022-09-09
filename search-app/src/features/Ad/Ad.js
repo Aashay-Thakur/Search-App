@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import "./Ad.scss";
 
 const Ad = () => {
 	const ads = useSelector((state) => state.ads.ads);
@@ -15,6 +16,7 @@ const Ad = () => {
 									src={ad.imageUrl}
 									alt=""
 									onError={(e) => {
+										e.preventDefault();
 										e.target.onError = null;
 										e.target.src =
 											"https://via.placeholder.com/600x400";
@@ -23,18 +25,19 @@ const Ad = () => {
 							</div>
 							<div className="card-content">
 								<span className="card-title activator grey-text text-darken-4">
-									{ad.heading}
 									<i className="material-icons right">
 										more_vert
 									</i>
-									<hr></hr>
-									<div className="card-content">
-										<p>{ad.description}</p>
-									</div>
+									{ad.heading}
 								</span>
+								<hr />
+								<p className="description">{ad.description}</p>
 								<div className="card-action">
 									<p>
-										<a href={ad.link} target="_blank" rel="noreferrer">
+										<a
+											href={ad.link}
+											target="_blank"
+											rel="noreferrer">
 											{ad.CTA}
 										</a>
 									</p>
@@ -45,8 +48,10 @@ const Ad = () => {
 									<i className="material-icons right">
 										close
 									</i>
+									{ad.heading}
 								</span>
-								<p>{ad.primaryText}</p>
+								<hr />
+								<p className="reveal-text">{ad.primaryText}</p>
 							</div>
 						</div>
 					</div>

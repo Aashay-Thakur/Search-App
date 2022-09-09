@@ -1,0 +1,32 @@
+.card {
+	.card-content {
+		.card-title {
+			font-weight: 600;
+			color: hsl(34, 100%, 70%) !important;
+
+			i {
+				color: black !important;
+			}
+		}
+		.description {
+			color: #777 !important;
+			padding: 2rem 1rem;
+			font-size: 18px;
+		}
+	}
+	.card-reveal {
+		.card-title {
+			font-weight: 600;
+			color: #ffbd66 !important;
+			i {
+				color: black !important;
+			}
+		}
+		.reveal-text {
+			color: #777 !important;
+			font-size: 20px;
+			text-align: right;
+			margin-top: 2rem;
+		}
+	}
+}

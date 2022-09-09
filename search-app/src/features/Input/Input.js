@@ -1,15 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateInput } from "./inputSlice";
-import "./Input.scss";
 // eslint-disable-next-line
 import M from "materialize-css";
+import "./Input.scss";
 
 const Input = () => {
-	// eslint-disable-next-line no-unused-vars
-	const input = useSelector((state) => state.input.value);
-	// eslint-disable-next-line no-unused-vars
-	const keywords = useSelector((state) => state.input.keywords);
 	const dispatch = useDispatch();
+	const debounceTimer = 500;
 
 	return (
 		<div className="inputContainer">
@@ -19,11 +16,17 @@ const Input = () => {
 						<input
 							id="search"
 							type="text"
-							onInput={(event) =>
-								dispatch(
-									updateInput({ value: event.target.value })
-								)
-							}
+							onInput={(event) => {
+								// Debouncing the input
+								// Too many dispatches and too many requests to the server
+								setTimeout(() => {
+									dispatch(
+										updateInput({
+											value: event.target.value,
+										})
+									);
+								}, debounceTimer);
+							}}
 							autoComplete="off"
 						/>
 						<label htmlFor="search">Search</label>

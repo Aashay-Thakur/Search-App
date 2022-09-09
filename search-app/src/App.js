@@ -1,7 +1,6 @@
 import Input from "./features/Input/Input";
 import Ads from "./features/Ads/Ads";
 
-import "./App.css";
 import "materialize-css/dist/css/materialize.min.css";
 
 function App() {

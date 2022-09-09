@@ -20,20 +20,27 @@ app.use(cors());
 var collection;
 
 app.get("/search", async function (req, res) {
+	// query is an array of keywords
 	const query = req.query.q;
 	collection = client.db("adverts").collection("ads");
-	if (query.toLowerCase() === "all")
-		return res.json(await collection.find({}).toArray());
+
+	//* Returns all the ads if user types in all
+	// if (query.toLowerCase() === "all") return res.json(await collection.find({}).toArray());
+
 	if (query !== "") {
 		try {
+			// mongodb has its own search functions
 			let result = await collection
 				.aggregate([
 					{
 						$search: {
+							// This is not inbuilt, it is a custom text index
+							// It needs to be created before, in Atlas
 							index: "keywords",
 							text: {
 								query: query,
 								path: ["description", "primaryText", "heading"],
+								// threshold for typos
 								fuzzy: {
 									maxEdits: 1,
 								},
@@ -50,6 +57,7 @@ app.get("/search", async function (req, res) {
 	}
 });
 
+// This function gets links for the companies from the companies table
 async function getLink(result) {
 	try {
 		collection = client.db("adverts").collection("companies");
