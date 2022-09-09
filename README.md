@@ -12,8 +12,9 @@ Once the React App opens you can type in any keyword in the search bar and it wi
 
 For the Project I have used:
 
-1. Redux
-2. React
-3. MongoDB
+1. MongoDB
+2. Redux
+3. React
 4. Express
-5. Materialize for prebuilt CSS components
+5. NodeJS
+6. Materialize for prebuilt CSS components
