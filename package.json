@@ -1,0 +1,27 @@
+{
+	"name": "search-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server": "cd ./backend && node server",
+		"client": "cd ./search-app && npm start",
+		"start": "concurrently \"npm run server\" \"npm run client\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Aashay-Thakur/Search-App.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Aashay-Thakur/Search-App/issues"
+	},
+	"homepage": "https://github.com/Aashay-Thakur/Search-App#readme",
+	"dependencies": {
+		"concurrently": "^7.4.0"
+	}
+}
+

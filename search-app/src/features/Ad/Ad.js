@@ -34,7 +34,7 @@ const Ad = () => {
 								</span>
 								<div className="card-action">
 									<p>
-										<a href={ad.link} target="_blank">
+										<a href={ad.link} target="_blank" rel="noreferrer">
 											{ad.CTA}
 										</a>
 									</p>
