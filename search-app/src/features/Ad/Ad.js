@@ -8,15 +8,15 @@ const Ad = () => {
 		<div>
 			{ads.map((ad) => {
 				return (
-					<div className="col s12 m6 l4" key={ad._id}>
+					<div className="col s12 m6 l4 ad" key={ad._id}>
 						<div className="card sticky-action">
 							<div className="card-image waves-effect waves-block waves-light">
 								<img
 									className="activator"
 									src={ad.imageUrl}
+									// src="https://via.placeholder.com/600x400"
 									alt=""
 									onError={(e) => {
-										e.preventDefault();
 										e.target.onError = null;
 										e.target.src =
 											"https://via.placeholder.com/600x400";
@@ -35,7 +35,7 @@ const Ad = () => {
 								<div className="card-action">
 									<p>
 										<a
-											href={ad.link}
+											href={ad.company?.url}
 											target="_blank"
 											rel="noreferrer">
 											{ad.CTA}
@@ -48,7 +48,9 @@ const Ad = () => {
 									<i className="material-icons right">
 										close
 									</i>
-									{ad.heading}
+									{ad.hasOwnProperty("company")
+										? ad.company.name.toUpperCase()
+										: ad.heading.toUpperCase()}
 								</span>
 								<hr />
 								<p className="reveal-text">{ad.primaryText}</p>

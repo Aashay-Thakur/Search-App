@@ -16,9 +16,10 @@ const Ads = () => {
 						method: "get",
 						url: "http://localhost:9000/search",
 						params: {
-							q: keywords.join(" "),
+							qs: keywords.join(" "),
 						},
 					});
+					console.log(result.data);
 					dispatch(updateAds({ ads: result.data }));
 				}
 			} catch (e) {
@@ -30,7 +31,7 @@ const Ads = () => {
 
 	return (
 		<div className="adsContainer">
-			<div className="row l12 m12 s12">
+			<div className="row">
 				<Ad />
 			</div>
 		</div>
