@@ -19,7 +19,6 @@ const Ads = () => {
 							qs: keywords.join(" "),
 						},
 					});
-					console.log(result.data);
 					dispatch(updateAds({ ads: result.data }));
 				}
 			} catch (e) {
