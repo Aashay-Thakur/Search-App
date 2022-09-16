@@ -16,7 +16,7 @@ const Ads = () => {
 						method: "get",
 						url: "http://localhost:9000/search",
 						params: {
-							qs: keywords.join(" "),
+							q: keywords.join(" "),
 						},
 					});
 					dispatch(updateAds({ ads: result.data }));
